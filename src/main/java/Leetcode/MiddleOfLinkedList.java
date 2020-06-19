@@ -44,6 +44,10 @@ public class MiddleOfLinkedList {
         return slowPtr;
     }
 
+    ListNode reverseLinkedList(ListNode head){
+        return head;
+    }
+
     public static void main(String [] args){
         int arr[] = {1,2,3,4,5,6};
         MiddleOfLinkedList list = new MiddleOfLinkedList();
