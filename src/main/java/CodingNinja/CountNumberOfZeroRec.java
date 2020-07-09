@@ -13,5 +13,7 @@ public class CountNumberOfZeroRec {
         int num = 102010;
         System.out.println(num);
         System.out.println(countZerosRec(num));
+        String str = "abcd";
+        System.out.println(str.substring(1, str.length()-1));
     }
 }
