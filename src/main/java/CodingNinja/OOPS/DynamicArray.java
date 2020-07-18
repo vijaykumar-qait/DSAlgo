@@ -1,9 +1,7 @@
 package CodingNinja.OOPS;
 
-import java.util.Arrays;
-
 public class DynamicArray {
-    private int data[];
+    public int data[];
     private int nextIndex;
 
     /*1*/
@@ -28,21 +26,20 @@ public class DynamicArray {
 
     /*4*/
     public void set(int index, int value){
-        if(index > nextIndex){
-            return;
+        if(index+1 > data.length){
+            while (index+1>data.length){
+                restructure();
+            }
         }
-        if(index<nextIndex){
-            data[index] = value;
-        }
-        else {
-            add(value);
-        }
+        data[index] = value;
     }
 
     /*5*/
     public int get(int index){
-        if(index>=nextIndex){
-            return -1;
+        if(index+1 > data.length){
+            while (index+1>data.length){
+                restructure();
+            }
         }
         return data[index];
     }

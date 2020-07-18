@@ -1,5 +1,7 @@
 package GFG.Recursion;
 
+import java.util.Scanner;
+
 public class Print1ToN {
     static void printNos(int N, int i)
     {
@@ -7,7 +9,7 @@ public class Print1ToN {
             System.out.println(N);
             return;
         }
-        System.out.println(i);
+        System.out.print(i + " ");
         printNos(N, i+1);
     }
 
@@ -19,5 +21,15 @@ public class Print1ToN {
     public static void main(String[] args){
         int num = 10;
         printNos(num);
+        submit();
+    }
+
+    public static void submit(){
+        Scanner scanner = new Scanner(System.in);
+        int testcases = scanner.nextInt();
+        for(int i=0; i<testcases; i++){
+            int times = scanner.nextInt();
+            printNos(times);
+        }
     }
 }
