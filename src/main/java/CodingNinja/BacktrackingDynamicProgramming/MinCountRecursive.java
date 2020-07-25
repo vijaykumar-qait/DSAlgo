@@ -1,8 +1,8 @@
 package CodingNinja.BacktrackingDynamicProgramming;
 
-public class MinCountOfSquareDP {
+public class MinCountRecursive {
     /**
-     * Code: Minimum Count of Squares
+     * Minimum Count
      * Send Feedback
      * Given an integer N, find and return the count of minimum numbers, sum of whose squares is equal to N.
      * That is, if N is 4, then we can represent it as : {1^2 + 1^2 + 1^2 + 1^2} and {2^2}. Output will be 1, as 1 is the minimum count of numbers required.
@@ -15,29 +15,37 @@ public class MinCountOfSquareDP {
      * 1 <= N <= 1000
      * Sample Input 1 :
      * 12
-     * @param n
-     * @return
+     * Sample Output 1 :
+     * 3
+     * Sample Output 1 Explanation :
+     * 12 can be represented as :
+     * 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1
+     * 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 1^1 + 2^2
+     * 1^1 + 1^1 + 1^1 + 1^1 + 2^2 + 2^2
+     * 2^2 + 2^2 + 2^2
+     * As we can see, the output should be 3.
+     * Sample Input 2 :
+     * 9
+     * Sample Output 2 :
+     * 1
      */
 
     public static int minCount(int n) {
-        int dp[] = new int[n+1];
-        dp[1] = 1;
-        dp[2] = 2;
-        dp[3] = 3;
-
-        for(int i=4; i<=n; i++){
-            int res = i;
-
-            for(int j=1; j*j<=i; j++){
-                int temp = j*j;
-                res = Math.min(res, dp[i-temp]);
-            }
-            dp[i] = res+1;
+        if(n<=3){
+            return n;
         }
-        return dp[n];
+
+        int res = n;
+
+        for(int i=1; i*i<=n; i++){
+            int temp = i*i;
+            res = Math.min(res, minCount(n-temp));
+        }
+        return res+1;
     }
+
     public static void main(String [] args){
-        int n = 1000;
+        int n = 100;
         System.out.println(minCount(n));
     }
 }

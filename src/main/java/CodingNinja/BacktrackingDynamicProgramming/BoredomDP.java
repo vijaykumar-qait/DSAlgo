@@ -1,6 +1,6 @@
 package CodingNinja.BacktrackingDynamicProgramming;
 
-public class BoredomRecursion {
+public class BoredomDP {
     /**
      * Boredom
      * Send Feedback
@@ -20,4 +20,31 @@ public class BoredomRecursion {
      * Sample Output :
      * 2
      */
+
+    static public int solve(int n,int A[])
+    {
+        int freqArr[] = new int[1001];
+        int dp[] = new int[1001];
+
+        for(int i=0; i<n; i++){
+            freqArr[A[i]]++;
+        }
+
+        dp[0] = 0;
+        dp[1] = freqArr[1] > 0 ? freqArr[1] : 0;
+
+        for(int i=2; i<=1000; i++){
+            dp[i] = Math.max(dp[i-2] + i*freqArr[i], dp[i-1]);
+        }
+        return dp[1000];
+    }
+
+    public static void main(String [] args){
+//        int arr[] = {1,2,1,3,2,2,2,2,3};
+//        int n = arr.length;
+
+        int arr[] = {1,2};
+        int n = arr.length;
+        System.out.println(solve(n, arr));
+    }
 }
