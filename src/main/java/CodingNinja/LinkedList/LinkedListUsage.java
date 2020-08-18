@@ -6,7 +6,7 @@ public class LinkedListUsage {
 
     //taking tail a pointer to keep the track of last node so that we don't have to traverse the whole list again
     //increasing the complexity to O(n^2) after taking tail track pointer we reduce complexity to O(n)
-    static Node<Integer> createList(){
+    public static Node<Integer> createList(){
         Node<Integer> head = null, tail=null;
 
         Scanner scanner = new Scanner(System.in);
